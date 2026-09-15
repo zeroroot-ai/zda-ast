@@ -6,6 +6,13 @@ on:
   pull_request:
   workflow_dispatch:
 
+# Both jobs only read the tree: checkout, build, vet, govulncheck. Without
+# this block the GITHUB_TOKEN keeps the repository default, which CodeQL
+# (actions/missing-workflow-permissions) flags on every job because a token
+# that can write is a token a compromised dependency can write with.
+permissions:
+  contents: read
+
 jobs:
   build:
     name: build
