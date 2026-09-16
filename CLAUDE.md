@@ -23,7 +23,8 @@ make check        # fmt vet test-race
 
 ## Gotchas
 
-- Internal Go module — not part of the open (Apache) tier; do not add it as a dependency of any Apache-licensed repo.
+- Public repo under the Elastic License 2.0 — not part of the permissive (Apache) tier; do not add it as a dependency of any Apache-licensed repo.
+- Every subcommand is a stub today. `where-called` returns an empty `results` array with `status:not-yet-implemented`; do not read that as "no call sites".
 - Results are only as fresh as the parsed tree; run against the current checkout, not a stale GOPATH copy.
 
 ## Links
